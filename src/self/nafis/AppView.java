@@ -2,6 +2,8 @@ package self.nafis;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 
 /**
@@ -10,6 +12,7 @@ import java.io.File;
 public class AppView {
     private JScrollPane filenamePanel;
     private JPanel jPanel;
+    private JButton selectButton;
     private JList fileList;
 
     public AppView() {
@@ -34,10 +37,16 @@ public class AppView {
         jPanel.add(filenamePanel);
         //jPanel.setSize(jPanel.getPreferredSize());
         frame.setContentPane(jPanel);
-
+        frame.add(selectButton);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+        selectButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+
+            }
+        });
     }
 
 }
