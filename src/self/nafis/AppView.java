@@ -29,6 +29,7 @@ public class AppView {
         jPanel = new JPanel();
         subs = new OpenSubtitlesAPI();
 
+        System.out.println("This is printed");
         JFileChooser chooser = new JFileChooser();
         int ret = chooser.showDialog(null, "Choose file");
         if(ret == JFileChooser.APPROVE_OPTION) {
@@ -43,27 +44,31 @@ public class AppView {
         }
         System.out.println("Logged in successfully!!");
 
+        DefaultListModel listModel = new DefaultListModel();
+
         try {
             List<Map<String, Object>> searchRes = subs.search(tokenSearch, chooser.getSelectedFile(), LANGUAGE.ENG);
             System.out.println("Done searching!!! Found: " + searchRes.size());
+            Integer temp = 0;
             for(int i=0;i<searchRes.size();i++) {
+                System.out.println("Object : " + searchRes.get(i).get("IDSubtitle"));
+                temp = Integer.parseInt( (String) searchRes.get(i).get("IDSubtitle"));
+
                 for(String key: searchRes.get(i).keySet()) {
                     System.out.println(key + " // " + searchRes.get(i).get(key));
+                    listModel.addElement(key);
                 }
+                System.out.println("//////");
+            }
+
+            Map<Integer, byte[]>downloadSub = subs.download(tokenSearch, temp);
+            for(Integer key : downloadSub.keySet()) {
+                System.out.println(key + " // " + downloadSub.get(key));
             }
         } catch (OpenSubtitlesException e) {
                 e.printStackTrace();
         }
 
-        DefaultListModel listModel = new DefaultListModel();
-        File folder = new File("/home/nafis");
-        File[] listOfFiles = folder.listFiles();
-        for(int i=0;i<listOfFiles.length;i++) {
-            if(listOfFiles[i].isFile()) {
-                listModel.addElement(listOfFiles[i].getName());
-                //System.out.println("Files : " + listOfFiles[i].getName());
-            }
-        }
         fileList = new JList(listModel);
 
         filenamePanel = new JScrollPane(fileList, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
