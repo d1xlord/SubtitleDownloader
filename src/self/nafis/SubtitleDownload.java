@@ -49,52 +49,50 @@ public class SubtitleDownload {
             e.printStackTrace();
         }
 
-        DefaultListModel listModel = new DefaultListModel();
-
         try {
             List<Map<String, Object>> searchRes = subs.search(tokenSearch, chooser.getSelectedFile(), LANGUAGE.ENG);
             System.out.println("Done searching!!! Found: " + searchRes.size());
-            if(searchRes.size() == 0)
+            if (searchRes.size() == 0)
                 view.changeStatus(SubtitleEnum.NO_SUBTITLE_FOUND);
-            else
+            else {
                 view.changeStatus(SubtitleEnum.SUBTITLE_FOUND);
 
-            List<Integer> temp = new ArrayList<Integer>();
-            for(int i=0;i<searchRes.size();i++) {
-                System.out.println("Object : " + searchRes.get(i).get("IDSubtitleFile"));
-                temp.add(Integer.parseInt((String) searchRes.get(i).get("IDSubtitleFile")));
+                List<Integer> temp = new ArrayList<Integer>();
+                for (int i = 0; i < searchRes.size(); i++) {
+                    System.out.println("Object : " + searchRes.get(i).get("IDSubtitleFile"));
+                    temp.add(Integer.parseInt((String) searchRes.get(i).get("IDSubtitleFile")));
 
-                for(String key: searchRes.get(i).keySet()) {
-                    System.out.println(key + " // " + searchRes.get(i).get(key));
-                    listModel.addElement(key);
+                    for (String key : searchRes.get(i).keySet()) {
+                        System.out.println(key + " // " + searchRes.get(i).get(key));
+                    }
+                    System.out.println("//////");
+                    break; //Only selecting the first subtitle (TODO: Suggestion)
                 }
-                System.out.println("//////");
-                break; //Only selecting the first subtitle (TODO: Suggestion)
-            }
 
-            Map<Integer, byte[]> downloadSub = subs.download(tokenSearch, temp);
-            byte[] gotSub = {};
-            for(Integer key : downloadSub.keySet()) {
-                System.out.println(key + "////" + downloadSub.get(key));
-                gotSub = downloadSub.get(key);
-                break; // Only selecting the first subtitle (FOR NOW, TODO: Suggestion)
-            }
-
-            String pathToWrite = chooser.getSelectedFile().getAbsolutePath();
-            for(int i=pathToWrite.length()-1;i>=0;i--)
-            {
-                if(pathToWrite.charAt(i) == '.'){
-                    pathToWrite = pathToWrite.substring(0, i) + ".srt";
-                    break;
+                Map<Integer, byte[]> downloadSub = subs.download(tokenSearch, temp);
+                byte[] gotSub = {};
+                for (Integer key : downloadSub.keySet()) {
+                    System.out.println(key + "////" + downloadSub.get(key));
+                    gotSub = downloadSub.get(key);
+                    break; // Only selecting the first subtitle (FOR NOW, TODO: Suggestion)
                 }
+
+                String pathToWrite = chooser.getSelectedFile().getAbsolutePath();
+                for (int i = pathToWrite.length() - 1; i >= 0; i--) {
+                    if (pathToWrite.charAt(i) == '.') {
+                        pathToWrite = pathToWrite.substring(0, i) + ".srt";
+                        break;
+                    }
+                }
+                System.out.println("File Path : " + pathToWrite);
+                FileOutputStream fos = new FileOutputStream(pathToWrite);
+                fos.write(gotSub);
+                fos.close();
+                view.changeStatus(SubtitleEnum.DOWNLOAD_SUCCESSFUL);
+                view.exitView(2000);
             }
-            System.out.println("File Path : " + pathToWrite);
-            FileOutputStream fos = new FileOutputStream(pathToWrite);
-            fos.write(gotSub);
-            fos.close();
-            view.changeStatus(SubtitleEnum.DOWNLOAD_SUCCESSFUL);
-            view.exitView(2000);
-        } catch (Exception e) {
+
+        }catch(Exception e) {
             view.changeStatus(SubtitleEnum.DOWNLOAD_FAILED);
             e.printStackTrace();
         }
