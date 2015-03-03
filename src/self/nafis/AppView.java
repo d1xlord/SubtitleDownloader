@@ -38,6 +38,8 @@ public class AppView {
         if(ret == JFileChooser.APPROVE_OPTION) {
             System.out.println("you have chosen: " + chooser.getSelectedFile().getName());
         }
+        else
+            return;
 
         String tokenSearch = "";
         try {
@@ -54,7 +56,7 @@ public class AppView {
             System.out.println("Done searching!!! Found: " + searchRes.size());
             List<Integer> temp = new ArrayList<Integer>();
             for(int i=0;i<searchRes.size();i++) {
-                System.out.println("Object : " + searchRes.get(i).get("IDSubtitle"));
+                System.out.println("Object : " + searchRes.get(i).get("IDSubtitleFile"));
                 //temp.add(Integer.parseInt((String) searchRes.get(i).get("IDSubtitle")));
                 temp.add(Integer.parseInt((String) searchRes.get(i).get("IDSubtitleFile")));
 
@@ -63,6 +65,7 @@ public class AppView {
                     listModel.addElement(key);
                 }
                 System.out.println("//////");
+                break; //Only selecting the first subtitle (TODO: Suggestion)
             }
 
             Map<Integer, byte[]> downloadSub = subs.download(tokenSearch, temp);
@@ -70,6 +73,7 @@ public class AppView {
             for(Integer key : downloadSub.keySet()) {
                 System.out.println(key + "////" + downloadSub.get(key));
                 gotSub = downloadSub.get(key);
+                break; // Only selecting the first subtitle (FOR NOW, TODO: Suggestion)
             }
 
             String pathToWrite = chooser.getSelectedFile().getAbsolutePath();
@@ -88,6 +92,8 @@ public class AppView {
                 e.printStackTrace();
         }
 
+        // TODO: File suggestion to be implemented here
+        /*
         fileList = new JList(listModel);
 
         filenamePanel = new JScrollPane(fileList, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -104,7 +110,7 @@ public class AppView {
             public void actionPerformed(ActionEvent actionEvent) {
 
             }
-        });
+        }); */
     }
 
 }

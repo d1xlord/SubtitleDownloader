@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="ProjectSubtitle:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="5d855ab8-74db-4fef-9aa6-25d49b96f048" name="Default" comment="" />
     <ignored path="ProjectSubtitle.iws" />
@@ -35,11 +40,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/self/nafis/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
-              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.042755343" vertical-offset="0" max-vertical-offset="421">
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -48,20 +53,20 @@
       <file leaf-file-name="AppView.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/self/nafis/AppView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="641" max-vertical-offset="1890">
-              <caret line="82" column="59" selection-start-line="82" selection-start-column="59" selection-end-line="82" selection-end-column="59" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1325" max-vertical-offset="1998">
+              <caret line="94" column="55" selection-start-line="94" selection-start-column="55" selection-end-line="94" selection-end-column="55" />
               <folding>
-                <element signature="e#1760#1769#0" expanded="true" />
+                <element signature="e#1793#1802#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OpenSubtitlesAPI.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="OpenSubtitlesAPI.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/googlecode/opensubtitlesjapi/OpenSubtitlesAPI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33254156" vertical-offset="1858" max-vertical-offset="3366">
-              <caret line="142" column="46" selection-start-line="142" selection-start-column="46" selection-end-line="142" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1534" max-vertical-offset="3366">
+              <caret line="133" column="22" selection-start-line="133" selection-start-column="22" selection-end-line="133" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -128,6 +133,20 @@
               <option name="myItemId" value="ProjectSubtitle" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProjectSubtitle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProjectSubtitle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -147,7 +166,7 @@
     <property name="OverrideImplement.overriding.sorted" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="false" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -433,12 +452,12 @@
       <workItem from="1425203018497" duration="1346000" />
       <workItem from="1425204650900" duration="3765000" />
       <workItem from="1425219254950" duration="4689000" />
-      <workItem from="1425357801956" duration="3274000" />
+      <workItem from="1425357801956" duration="4170000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17759000" />
+    <option name="totallyTimeSpent" value="18655000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
@@ -513,7 +532,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1026" max-vertical-offset="1656">
           <caret line="57" column="20" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
           <folding>
-            <element signature="e#1760#1769#0" expanded="true" />
+            <element signature="e#1793#1802#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -539,7 +558,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1380">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1760#1769#0" expanded="true" />
+            <element signature="e#1793#1802#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -572,7 +591,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1098" max-vertical-offset="1656">
           <caret line="61" column="41" selection-start-line="61" selection-start-column="41" selection-end-line="61" selection-end-column="41" />
           <folding>
-            <element signature="e#1760#1769#0" expanded="true" />
+            <element signature="e#1793#1802#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -605,7 +624,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1134">
           <caret line="0" column="19" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
           <folding>
-            <element signature="e#1760#1769#0" expanded="true" />
+            <element signature="e#1793#1802#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -628,7 +647,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1044">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1760#1769#0" expanded="true" />
+            <element signature="e#1793#1802#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -651,7 +670,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="108">
           <caret line="0" column="8" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1760#1769#0" expanded="true" />
+            <element signature="e#1793#1802#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -723,28 +742,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/self/nafis/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/com/googlecode/opensubtitlesjapi/OpenSubtitlesAPI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1534" max-vertical-offset="3366">
+          <caret line="133" column="22" selection-start-line="133" selection-start-column="22" selection-end-line="133" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/self/nafis/AppView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="641" max-vertical-offset="1890">
-          <caret line="82" column="59" selection-start-line="82" selection-start-column="59" selection-end-line="82" selection-end-column="59" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1325" max-vertical-offset="1998">
+          <caret line="94" column="55" selection-start-line="94" selection-start-column="55" selection-end-line="94" selection-end-column="55" />
           <folding>
-            <element signature="e#1760#1769#0" expanded="true" />
+            <element signature="e#1793#1802#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/googlecode/opensubtitlesjapi/OpenSubtitlesAPI.java">
+    <entry file="file://$PROJECT_DIR$/src/self/nafis/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33254156" vertical-offset="1858" max-vertical-offset="3366">
-          <caret line="142" column="46" selection-start-line="142" selection-start-column="46" selection-end-line="142" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.042755343" vertical-offset="0" max-vertical-offset="421">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -755,10 +774,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>ProjectSubtitle:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
