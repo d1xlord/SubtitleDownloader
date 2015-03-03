@@ -18,42 +18,53 @@ import java.util.List;
 /**
  * Created by nafis on 3/1/15.
  */
-public class AppView {
-    private JScrollPane filenamePanel;
-    private JPanel jPanel;
-    private JButton selectButton;
-    private JList fileList;
-
+public class SubtitleDownload {
+    
     OpenSubtitlesAPI subs;
 
-    public AppView() {
+    public SubtitleDownload() {
         System.out.println("Code is here");
-        JFrame frame = new JFrame("AppView");
-        jPanel = new JPanel();
+
         subs = new OpenSubtitlesAPI();
 
         System.out.println("This is printed");
         JFileChooser chooser = new JFileChooser();
-        int ret = chooser.showDialog(null, "Choose file");
-        if(ret == JFileChooser.APPROVE_OPTION) {
-            System.out.println("you have chosen: " + chooser.getSelectedFile().getName());
-        }
-        else
-            return;
+        SubtitleView view = new SubtitleView();
+        Thread thread = new Thread(view);
+        thread.start();
 
         String tokenSearch = "";
         try {
             tokenSearch = subs.login("", "");
+            System.out.println("Logged in successfully!!");
+            view.changeStatus(SubtitleEnum.LOGIN_SUCCESSFUL);
+
+            // Choosing file dialog
+            int ret = chooser.showDialog(null, "Choose file");
+            if(ret == JFileChooser.APPROVE_OPTION) {
+                System.out.println("you have chosen: " + chooser.getSelectedFile().getName());
+            }
+            else {
+                view.exitView(0);
+                return;
+            }
         } catch (OpenSubtitlesException e) {
+            view.changeStatus(SubtitleEnum.LOGIN_FAILED);
             System.out.println("Error while login");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-        System.out.println("Logged in successfully!!");
 
         DefaultListModel listModel = new DefaultListModel();
 
         try {
             List<Map<String, Object>> searchRes = subs.search(tokenSearch, chooser.getSelectedFile(), LANGUAGE.ENG);
             System.out.println("Done searching!!! Found: " + searchRes.size());
+            if(searchRes.size() == 0)
+                view.changeStatus(SubtitleEnum.NO_SUBTITLE_FOUND);
+            else
+                view.changeStatus(SubtitleEnum.SUBTITLE_FOUND);
+
             List<Integer> temp = new ArrayList<Integer>();
             for(int i=0;i<searchRes.size();i++) {
                 System.out.println("Object : " + searchRes.get(i).get("IDSubtitleFile"));
@@ -88,8 +99,11 @@ public class AppView {
             FileOutputStream fos = new FileOutputStream(pathToWrite);
             fos.write(gotSub);
             fos.close();
+            view.changeStatus(SubtitleEnum.DOWNLOAD_SUCCESSFUL);
+            view.exitView(2000);
         } catch (Exception e) {
-                e.printStackTrace();
+            view.changeStatus(SubtitleEnum.DOWNLOAD_FAILED);
+            e.printStackTrace();
         }
 
         // TODO: File suggestion to be implemented here
