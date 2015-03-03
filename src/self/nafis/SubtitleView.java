@@ -1,6 +1,7 @@
 package self.nafis;
 
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
 import java.awt.*;
 import java.awt.event.WindowEvent;
 
@@ -12,15 +13,24 @@ public class SubtitleView implements Runnable {
     JFrame frame = new JFrame("Subtitle Downloader");
     JPanel panel = new JPanel();
     JLabel label = new JLabel();
+    JPanel dPanel = new JPanel();
 
     SubtitleEnum status;
 
     public SubtitleView() {
         frame.setSize(new Dimension(400, 200));
         label.setText("Subtitle downloader initializing...");
-
         panel.add(label);
-        frame.setContentPane(panel);
+
+        dPanel.setBorder(new BevelBorder(BevelBorder.LOWERED));
+        dPanel.setSize(new Dimension(frame.getWidth(), 20));
+
+        JLabel d1xlord = new JLabel("--- by d1xlord ---");
+        d1xlord.setHorizontalAlignment(SwingConstants.RIGHT);
+        dPanel.add(d1xlord);
+
+        frame.add(panel, BorderLayout.CENTER);
+        frame.add(dPanel, BorderLayout.SOUTH);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
