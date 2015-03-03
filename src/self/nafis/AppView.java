@@ -9,6 +9,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.*;
 import java.util.List;
 
@@ -49,10 +52,11 @@ public class AppView {
         try {
             List<Map<String, Object>> searchRes = subs.search(tokenSearch, chooser.getSelectedFile(), LANGUAGE.ENG);
             System.out.println("Done searching!!! Found: " + searchRes.size());
-            Integer temp = 0;
+            List<Integer> temp = new ArrayList<Integer>();
             for(int i=0;i<searchRes.size();i++) {
                 System.out.println("Object : " + searchRes.get(i).get("IDSubtitle"));
-                temp = Integer.parseInt( (String) searchRes.get(i).get("IDSubtitle"));
+                //temp.add(Integer.parseInt((String) searchRes.get(i).get("IDSubtitle")));
+                temp.add(Integer.parseInt((String) searchRes.get(i).get("IDSubtitleFile")));
 
                 for(String key: searchRes.get(i).keySet()) {
                     System.out.println(key + " // " + searchRes.get(i).get(key));
@@ -61,11 +65,26 @@ public class AppView {
                 System.out.println("//////");
             }
 
-            Map<Integer, byte[]>downloadSub = subs.download(tokenSearch, temp);
+            Map<Integer, byte[]> downloadSub = subs.download(tokenSearch, temp);
+            byte[] gotSub = {};
             for(Integer key : downloadSub.keySet()) {
-                System.out.println(key + " // " + downloadSub.get(key));
+                System.out.println(key + "////" + downloadSub.get(key));
+                gotSub = downloadSub.get(key);
             }
-        } catch (OpenSubtitlesException e) {
+
+            String pathToWrite = chooser.getSelectedFile().getAbsolutePath();
+            for(int i=pathToWrite.length()-1;i>=0;i--)
+            {
+                if(pathToWrite.charAt(i) == '.'){
+                    pathToWrite = pathToWrite.substring(0, i) + ".srt";
+                    break;
+                }
+            }
+            System.out.println("File Path : " + pathToWrite);
+            FileOutputStream fos = new FileOutputStream(pathToWrite);
+            fos.write(gotSub);
+            fos.close();
+        } catch (Exception e) {
                 e.printStackTrace();
         }
 

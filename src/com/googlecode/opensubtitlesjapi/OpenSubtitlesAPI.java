@@ -126,11 +126,11 @@ public class OpenSubtitlesAPI {
     return results;
   }
 
-  public Map<Integer,byte[]> download(String token, Integer... id) throws OpenSubtitlesException {
+  public Map<Integer,byte[]> download(String token, List<Integer> id) throws OpenSubtitlesException {
     Map<Integer,byte[]> result = new HashMap<Integer,byte[]>();
     List<Object> params = new ArrayList<Object>();
     List<Integer> ids = new ArrayList<Integer>();
-    ids.addAll(Arrays.asList(id));
+    ids.addAll(id);
     params.add(token);
     params.add(ids);
     Map<String, Object> temp = executeAPI(API.DOWNLOAD, params);
@@ -140,7 +140,7 @@ public class OpenSubtitlesAPI {
         temp = (Map<String, Object>) o;
         byte[] decodedBytes = base64decode((String) temp.get("data"));
         byte[] subtitle = gunzip(decodedBytes);
-        result.put((Integer) temp.get("idsubtitlefile"), subtitle);
+        result.put( Integer.parseInt((String) temp.get("idsubtitlefile")), subtitle);
       }
     } catch (Exception e) {
       throw new OpenSubtitlesException("download error",e);
