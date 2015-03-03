@@ -5,13 +5,7 @@ import com.googlecode.opensubtitlesjapi.OpenSubtitlesAPI;
 import com.googlecode.opensubtitlesjapi.OpenSubtitlesException;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.*;
 import java.util.List;
 
@@ -19,7 +13,7 @@ import java.util.List;
  * Created by nafis on 3/1/15.
  */
 public class SubtitleDownload {
-    
+
     OpenSubtitlesAPI subs;
 
     public SubtitleDownload() {
@@ -68,7 +62,6 @@ public class SubtitleDownload {
             List<Integer> temp = new ArrayList<Integer>();
             for(int i=0;i<searchRes.size();i++) {
                 System.out.println("Object : " + searchRes.get(i).get("IDSubtitleFile"));
-                //temp.add(Integer.parseInt((String) searchRes.get(i).get("IDSubtitle")));
                 temp.add(Integer.parseInt((String) searchRes.get(i).get("IDSubtitleFile")));
 
                 for(String key: searchRes.get(i).keySet()) {

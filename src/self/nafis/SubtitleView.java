@@ -39,8 +39,6 @@ public class SubtitleView implements Runnable {
             @Override
             public void run() {
                 label.setText(str);
-                panel.revalidate();
-                frame.revalidate();
             }
         });
     }
