@@ -22,7 +22,7 @@ import org.apache.xmlrpc.client.XmlRpcClientConfigImpl;
 public class OpenSubtitlesAPI {
 
   private static final Logger log = Logger.getLogger(OpenSubtitlesAPI.class);
-  private static final String USER_AGENT = "OSTestUserAgent"; // Testing UA, TODO: get my own UA
+  private static final String USER_AGENT = "JSubtitleDownloader"; // My own UA
   //private static final String USER_AGENT = "OS Test User Agent";
   private static final String END_POINT = "http://api.opensubtitles.org/xml-rpc";
   private static final String LANGUAGE = "en";
